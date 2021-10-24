@@ -5,14 +5,14 @@ namespace Core.Interfaces
 {
     public interface IRecipeBookService
     {
-        ICollection<RecipeBookResponse> Add(RecipeBookRequest recipe);
+        ICollection<RecipeBookModel> Add(RecipeBookModel recipe);
 
-        ICollection<RecipeBookResponse> GetAll();
+        ICollection<RecipeBookModel> GetAll();
 
-        RecipeBookResponse GetById(string Id);
+        RecipeBookModel GetById(int id);
 
-        void Update(RecipeBookRequest recipe);
+        RecipeBookModel Update(int id, RecipeBookModel newRecipeBook);
 
-        void Remove(string Id);
+        void Remove(int id);
     }
 }

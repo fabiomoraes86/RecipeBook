@@ -7,9 +7,8 @@ using System.Collections.Generic;
 namespace RecipeBook.Api.Controllers
 {
     [ApiController]
-    [Route("v1/recipe")]
+    [Route("v1/recipeBook")]
     public class RecipeController : ControllerBase
-
     {
         private readonly IRecipeBookService _recipeBook;
 
@@ -19,31 +18,27 @@ namespace RecipeBook.Api.Controllers
         }
 
         [HttpPost]
-        public ICollection<RecipeBookResponse> Add([FromBody] RecipeBookRequest recipe)
+        public ICollection<RecipeBookModel> Add([FromBody] RecipeBookModel recipe)
         {
             return _recipeBook.Add(recipe);
         }
 
         [HttpGet]
-        public ICollection<RecipeBookResponse> GetAll()
+        public ICollection<RecipeBookModel> GetAll()
         {
             return _recipeBook.GetAll();
         }
 
         [HttpGet("{id}")]
-        public RecipeBookResponse GetById(string id)
+        public RecipeBookModel GetById(int id)
         {
             return _recipeBook.GetById(id);
         }
 
-        [HttpPost("remove/{id}")]
-        public IActionResult Remove(string id)
+        [HttpPut("update/{id}")]
+        public RecipeBookModel Remove(int id, [FromBody] RecipeBookModel recipe)
         {
-            _recipeBook.Remove(id);
-            return Ok();
+            return _recipeBook.Update(id, recipe);
         }
-
-
-
     }
 }

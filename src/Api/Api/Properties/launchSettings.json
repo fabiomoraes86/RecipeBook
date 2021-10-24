@@ -21,8 +21,7 @@
       "launchBrowser": true,
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
-        "JSON_FILE" : "D:\\projetos\\recipeBook\\utils\\ListRecipeBook.json"
+        "ASPNETCORE_ENVIRONMENT": "Development"
       }
     }
   }

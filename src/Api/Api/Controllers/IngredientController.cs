@@ -15,11 +15,16 @@ namespace RecipeBook.Api.Controllers
             _ingredient = ingredient;
         }
 
-        [HttpPost("add/{id}")]
-        public Ingredient Add(string idRecipe, [FromBody] Ingredient ingredient)
+        [HttpPost("add/{recipeId}")]
+        public IngredientModel Add(int recipeId, [FromBody] IngredientModel ingredient)
         {
-            return _ingredient.Add(idRecipe, ingredient);
+            return _ingredient.Add(recipeId, ingredient);
         }
 
+        [HttpPost("remove/{recipeId}/{ingredientId}")]
+        public void Remove(int recipeId, int ingredientId)
+        {
+            _ingredient.Remove(recipeId, ingredientId);
+        }
     }
 }

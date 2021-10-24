@@ -1,10 +1,12 @@
 ﻿using Core.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Core.Interfaces
 {
     public interface IIngredientService
     {
-        Ingredient Add(string idRecipe, Ingredient ingredient);
-        void Remove(string idRecipe, string idIngredient);
+        IngredientModel Add(int recipeId, IngredientModel ingredient);
+
+        void Remove(int recipeId, int ingredientId);
     }
 }
