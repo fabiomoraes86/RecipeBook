@@ -35,6 +35,13 @@ namespace RecipeBook.Api.Controllers
             return _recipeBook.GetById(id);
         }
 
+        [HttpPost("remove/{id}")]
+        public IActionResult Remove(int id)
+        {
+            _recipeBook.Remove(id);
+            return Ok();
+        }
+
         [HttpPut("update/{id}")]
         public RecipeBookModel Remove(int id, [FromBody] RecipeBookModel recipe)
         {

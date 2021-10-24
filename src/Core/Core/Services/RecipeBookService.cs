@@ -10,7 +10,7 @@ namespace Core.Services
 {
     public class RecipeBookService : IRecipeBookService
     {
-        private string jsonFile = @"D:\projetos\recipeBook\utils\ListRecipeBook.json";
+        private string jsonFile = @"D:\projetos\recipeBook\ListRecipeBook.json";
         private readonly string _recipeListData;
         private readonly List<RecipeBookModel> _recipeBook;
 
@@ -40,6 +40,9 @@ namespace Core.Services
         public RecipeBookModel GetById(int Id)
         {
             var recipeBook = _recipeBook.FirstOrDefault(recipe => recipe.Id == Id);
+
+            if (recipeBook == null)
+                return new RecipeBookModel();
 
             return recipeBook;
         }

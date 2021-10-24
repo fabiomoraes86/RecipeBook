@@ -1,5 +1,4 @@
 ﻿using Core.Models;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Core.Interfaces
 {
