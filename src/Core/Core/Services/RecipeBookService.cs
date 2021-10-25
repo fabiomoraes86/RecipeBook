@@ -3,6 +3,7 @@ using Core.Interfaces;
 using Core.Models;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Abstractions;
 using System.Linq;
 using System.Text.Json;
 
@@ -13,10 +14,12 @@ namespace Core.Services
         private string jsonFile = @"D:\projetos\recipeBook\ListRecipeBook.json";
         private readonly string _recipeListData;
         private readonly List<RecipeBookModel> _recipeBook;
+        private readonly IFileSystem _fileSystem;
 
-        public RecipeBookService()
+        public RecipeBookService(IFileSystem fileSystem)
         {
-            _recipeListData = File.ReadAllText(jsonFile);
+            _fileSystem = fileSystem;
+            _recipeListData = _fileSystem.File.ReadAllText(jsonFile);
             _recipeBook = JsonSerializer.Deserialize<List<RecipeBookModel>>(_recipeListData);
         }
 
@@ -27,7 +30,7 @@ namespace Core.Services
             _recipeBook.Add(recipe);
 
             var resultRecipe = JsonSerializer.Serialize(_recipeBook);
-            File.WriteAllText(jsonFile, resultRecipe);
+            _fileSystem.File.WriteAllText(jsonFile, resultRecipe);
 
             return _recipeBook;
         }
@@ -55,7 +58,7 @@ namespace Core.Services
 
             var result = JsonSerializer.Serialize(_recipeBook);
 
-            File.WriteAllText(jsonFile, result);
+            _fileSystem.File.WriteAllText(jsonFile, result);
         }
 
         public RecipeBookModel Update(int id, RecipeBookModel newRecipeBook)
@@ -71,7 +74,7 @@ namespace Core.Services
             }
 
             var result = JsonSerializer.Serialize(_recipeBook);
-            File.WriteAllText(jsonFile, result);
+            _fileSystem.File.WriteAllText(jsonFile, result);
 
             return _recipeBook.FirstOrDefault(recipe => recipe.Id == id);
         }

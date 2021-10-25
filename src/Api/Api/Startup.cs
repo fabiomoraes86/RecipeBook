@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.IO.Abstractions;
 
 namespace Api
 {
@@ -22,14 +23,24 @@ namespace Api
         {
             services.AddControllers();
 
+            services.AddScoped<IFileSystem, FileSystem>();
+
             services.AddScoped<IRecipeBookService, RecipeBookService>();
 
             services.AddScoped<IIngredientService, IngredientService>();
+
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseSwagger();
+
+            app.UseSwaggerUI(x => 
+                x.SwaggerEndpoint("/swagger/v1/swagger.json", "RecipeBook App")
+            );
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
