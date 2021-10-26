@@ -10,7 +10,7 @@ namespace Core.Services
 {
     public class IngredientService : IIngredientService
     {
-        private string jsonFile = @"D:\projetos\recipeBook\utils\ListRecipeBook.json";
+        private string jsonFile = @"D:\projetos\recipeBook\ListRecipeBook.json";
         private readonly string _json;
         private readonly List<RecipeBookModel> _recipeBook;
         private readonly IFileSystem _fileSystem;

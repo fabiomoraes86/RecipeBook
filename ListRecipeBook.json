@@ -1,12 +1,1 @@
-[{
-        "Id": 1,
-        "Title": "test1",
-        "Ingredients": [],
-        "Instruction": "test1"
-    }, {
-        "Id": 2,
-        "Title": "test2",
-        "Ingredients": [],
-        "Instruction": "test2"
-    }
-]
+[{"Id":1,"Title":"Veggie Packed BBQ Meatloaf","Ingredients":[{"Id":1,"Name":"1 small zucchini, finely grated"},{"Id":2,"Name":"1 small carrot, finely grated"},{"Id":3,"Name":"100g peeled pumpkin, finely grated"},{"Id":4,"Name":"500g extra-lean pork \u0026 veal mince"},{"Id":5,"Name":"4 long green onions, thinly sliced"},{"Id":6,"Name":"1 egg"}],"Instruction":"Preheat oven to 200\u00B0C/180\u00B0C fan-forced. Lightly spray a 10cm x 18cm loaf tin with oil and line 2 long sides with baking paper, extending paper 2cm above edges of pan"},{"Id":2,"Title":"Veggie Packed BBQ Meatloaf","Ingredients":[{"Id":1,"Name":"1 small zucchini, finely grated"},{"Id":2,"Name":"1 small carrot, finely grated"},{"Id":3,"Name":"100g peeled pumpkin, finely grated"},{"Id":4,"Name":"500g extra-lean pork \u0026 veal mince"},{"Id":5,"Name":"4 long green onions, thinly sliced"},{"Id":6,"Name":"1 egg"},{"Id":7,"Name":"1 cacha\u00E7a"}],"Instruction":"Preheat oven to 200\u00B0C/180\u00B0C fan-forced. Lightly spray a 10cm x 18cm loaf tin with oil and line 2 long sides with baking paper, extending paper 2cm above edges of pan"}]
