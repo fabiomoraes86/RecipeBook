@@ -43,7 +43,7 @@ namespace RecipeBook.Api.Controllers
         }
 
         [HttpPut("update/{id}")]
-        public RecipeBookModel Remove(int id, [FromBody] RecipeBookModel recipe)
+        public RecipeBookModel Update(int id, [FromBody] RecipeBookModel recipe)
         {
             return _recipeBook.Update(id, recipe);
         }
